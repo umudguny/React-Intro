@@ -1,18 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
 import Homepage from "./pages/HomePage/Homepage";
 import About from "./pages/About/About";
+import Navbar from "./components/Navbar/Navbar"; // hata veriyo ama çalışıyo
 
-function App() {
+export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="*" element={<p>Not Found</p>}></Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Navbar />
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Homepage />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="*" element={<p>Not Found</p>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
-
-export default App;
