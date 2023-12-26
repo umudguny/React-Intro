@@ -1,5 +1,4 @@
 import React from "react";
-
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -22,12 +21,12 @@ export default function Navbar() {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
-                Home
+                Ana Sayfa
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Link
+                Hakkında
               </a>
             </li>
             <li className="nav-item dropdown">
