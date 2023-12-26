@@ -9,35 +9,42 @@ export default function Homepage() {
   };
 
   useEffect(() => {
-    myAsyncFunction()
-      .then((response) => {
-        console.log("işlem başarılı cevap:", response);
-      }) // async işlem başarılı ise(resolve edildi ise)
-      .catch((error) => {
-        console.log("İşlem başarısız cevap:", error);
-      }) // async işlem başarısız ise(reject edildi ise)
-      .finally(() => {
-        console.log("İşlem bitti");
-      }); //Her halükarda en son çalışır.
-    console.log("Merhaba");
+    makeAsyncCall();
+    makeHttpcall();
   }, []);
 
-  // const makeAsyncCall = async () => {
-  //   myAsyncFunction();
-  //   // .then((response) => {
-  //   //   console.log("işlem başarılı cevap:", response);
-  //   // }) // async işlem başarılı ise(resolve edildi ise)
-  //   // .catch((error) => {
-  //   //   console.log("İşlem başarısız cevap:", error);
-  //   // }) // async işlem başarısız ise(reject edildi ise)
-  //   // .finally(() => {
-  //   //   console.log("İşlem bitti");
-  //   // }); //Her halükarda en son çalışır.
+  const makeHttpcall = async () => {
+    // fetch("https://dummyjson.com/products")
+    //   .then((response) => response.json())
+    //   .then((json) => console.log(json))
+    //   .catch((err) => console.log(err));
+    //zincirleme promise
 
-  //   // es2017 async-await
-  //   let response = await myAsyncFunction();
-  //   console.log(response);
-  // };
+    let response = await fetch("https://dummyjson.com/products");
+    let json = await response.json();
+    console.log(json);
+  };
+
+  const makeAsyncCall = async () => {
+    myAsyncFunction();
+    // .then((response) => {
+    //   console.log("işlem başarılı cevap:", response);
+    // }) // async işlem başarılı ise(resolve edildi ise)
+    // .catch((error) => {
+    //   console.log("İşlem başarısız cevap:", error);
+    // }) // async işlem başarısız ise(reject edildi ise)
+    // .finally(() => {
+    //   console.log("İşlem bitti");
+    // }); //Her halükarda en son çalışır.
+
+    // es2017 async-await
+    try {
+      let response = await myAsyncFunction();
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <div>
